@@ -11,7 +11,11 @@ define(['ModernizrProto', 'prefixes'], function( ModernizrProto, prefixes ) {
     var cssrule = window.CSSRule;
     var rule;
 
-    // remove literal @ from begining of provided property
+    if (typeof cssrule === 'undefined') {
+      return false;
+    }
+
+    // remove literal @ from beginning of provided property
     prop = prop.replace(/^@/,'');
 
     // CSSRules use underscores instead of dashes
